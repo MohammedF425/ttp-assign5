@@ -9,9 +9,14 @@ function addrows() {
   const cols = grid.rows[0].cells.length;
   for (let i = 0; i < cols; i++) {
     const newCell = document.createElement('td');
-    newCell.addEventListener('mouseover', changeCellColor);
+    newCell.addEventListener('click', changeCellColor);
     newRow.appendChild(newCell);
   }
+  // if(cols===0){
+  //   newCell.addEventListener('mouseover', changeCellColor);
+  //   newRow.appendChild(newCell);
+  //   rows[i].appendChild(newCell); 
+  // }
   grid.appendChild(newRow);
 }
 
@@ -20,14 +25,14 @@ function addcols() {
   const rows = grid.rows;
   for (let i = 0; i < rows.length; i++) {
     const newCell = document.createElement('td');
-    newCell.addEventListener('mouseover', changeCellColor);
+    newCell.addEventListener('click', changeCellColor);
     rows[i].appendChild(newCell);
   }
 }
 
 // Function to remove a row from the grid
 function remrows() {
-  if (grid.rows.length > 1) {
+  if (grid.rows.length > 0) {
     grid.removeChild(grid.lastElementChild);
   }
 }
@@ -36,7 +41,7 @@ function remrows() {
 function remcols() {
   const rows = grid.rows;
   for (let i = 0; i < rows.length; i++) {
-    if (rows[i].cells.length > 1) {
+    if (rows[i].cells.length > 0) {
       rows[i].removeChild(rows[i].lastElementChild);
     }
   }
