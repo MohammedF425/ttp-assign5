@@ -1,36 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-<<<<<<< HEAD
-        <script src="script.js"></script>
-=======
-        <script src="javaScript.js"></script>
->>>>>>> da782b44e61e66cf66ed2f64a6284249c1a20475
+        <title>User</title>
     </head>
 
 <body>
-    <title>User</title>
-    <div class=""button>
-        <button type="button">Add Rows</button>
-        <button type="button">Add Columms</button>
-        <button type="button">Remove Rows</button>
-        <button type="button">Remove Columns</button> 
-    </div>
-    
-    <div class="color">
-        <label for="color">Select a Color:</label>
-        <select id="color" name="color">
-            <option value ="red">Red</option>
-            <option value ="blue">Blue</option>
-            <option value ="green">Green</option>
-            <option value ="yellow">Yellow</option>
-        </select>
-        </div>    
 
-        <table id="grid">
-            <tr>
-                <td></td>
-            </tr>
-        </table>
+    <table id="grid">
+        <thead>
+            <th>Cells</th>
+        </thead>
+        <tr>
+            <td>Table</td>
+        </tr>
+    </table>
+    
+    <button type="button" onclick = "addRow()">Add Rows</button>
+    <button type="button" onclick = "addColumn()">Add Columms</button>
+    <button type="button" onclick= "removeRow()">Remove Rows</button>
+    <button type="button" onclick= "removeCol()">Remove Columns</button> 
+    
+    <select id="color" onchange = "selectColor()">
+        <option value ="red">Default</option>
+        <option value ="red">Red</option>
+        <option value ="blue">Blue</option>
+        <option value ="green">Green</option>
+        <option value ="yellow">Yellow</option>
+    </select>
+
+    <button id="colorUncolorCells">Color Uncolored Cells</button>
+    <button id="colorAllCells">Color All Cells</button>
+    <button id="clearAllCells">Clear All Cells</button>
+    <script src="script.js"></script>
+
 </body>
 </html>
