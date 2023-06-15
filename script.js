@@ -32,7 +32,7 @@ function addcols() {
 
 // Function to remove a row from the grid
 function remrows() {
-  if (grid.rows.length > 0) {
+  if (grid.rows.length > 1) {
     grid.removeChild(grid.lastElementChild);
   }
 }
@@ -41,7 +41,7 @@ function remrows() {
 function remcols() {
   const rows = grid.rows;
   for (let i = 0; i < rows.length; i++) {
-    if (rows[i].cells.length > 0) {
+    if (rows[i].cells.length > 1) {
       rows[i].removeChild(rows[i].lastElementChild);
     }
   }
