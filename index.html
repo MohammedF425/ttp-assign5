@@ -6,15 +6,10 @@
     </head>
 
 <body>
+    <script src="script.js" async></script>
+    <h1>Cells</h1>
 
-    <table id="grid">
-        <h1>Cells</h1>
-        <tr>
-            <td>Table</td>
-        </tr>
-    </table>
-    
-    <button type="button" onclick = "addrows()">Add Rows</button>
+   <button type="button" onclick = "addrows()">Add Rows</button>
     <button type="button" onclick = "addcols()">Add Columms</button>
     <button type="button" onclick= "remrows()">Remove Rows</button>
     <button type="button" onclick= "remcols()">Remove Columns</button> 
@@ -30,8 +25,14 @@
     <button id="colorUncolorCells" onclick="filluncolor()">Color Uncolored Cells</button>
     <button id="colorAllCells" onclick="fillall()">Color All Cells</button>
     <button id="clearAllCells" onclick="clearall()">Clear All Cells</button>
-    <script src="script.js"></script>
     
+    <table id="grid">
+        <tr>
+            <td>Table</td>
+        </tr>
+    </table>
+    
+ 
 
 </body>
 </html>
