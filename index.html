@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="stylesheet" href="style.css">
         <title>User</title>
     </head>
 
@@ -15,12 +16,12 @@
         </tr>
     </table>
     
-    <button type="button" onclick = "addRow()">Add Rows</button>
-    <button type="button" onclick = "addColumn()">Add Columms</button>
-    <button type="button" onclick= "removeRow()">Remove Rows</button>
-    <button type="button" onclick= "removeCol()">Remove Columns</button> 
+    <button type="button" onclick = "addrows()">Add Rows</button>
+    <button type="button" onclick = "addcols()">Add Columms</button>
+    <button type="button" onclick= "remrows()">Remove Rows</button>
+    <button type="button" onclick= "remcols()">Remove Columns</button> 
     
-    <select id="color" onchange = "selectColor()">
+    <select id="color" onchange = "changecolor()">
         <option value ="red">Default</option>
         <option value ="red">Red</option>
         <option value ="blue">Blue</option>
@@ -28,10 +29,11 @@
         <option value ="yellow">Yellow</option>
     </select>
 
-    <button id="colorUncolorCells">Color Uncolored Cells</button>
-    <button id="colorAllCells">Color All Cells</button>
-    <button id="clearAllCells">Clear All Cells</button>
+    <button id="colorUncolorCells" onclick="filluncolor()">Color Uncolored Cells</button>
+    <button id="colorAllCells" onclick="fillall()">Color All Cells</button>
+    <button id="clearAllCells" onclick="clearall()">Clear All Cells</button>
     <script src="script.js"></script>
+    
 
 </body>
 </html>

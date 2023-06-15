@@ -78,5 +78,34 @@ function clearall() {
   });
 }
 
-// Event listener for clicking on a cell to change its color
+let isDragging = false;
+
+// Listens for mouseover 
+grid.addEventListener("mousedown", (event) => {
+  // If its over the table
+  if (event.target.tagName === "TD") {
+    // It is being dragged, set the color of the selected cell
+    isDragging = true;
+    event.target.style.backgroundColor = selectColor();
+  }
+});
+
+grid.addEventListener("mouseover", (event) => {
+  // If being dragged within target cell, set its color given from the function
+  if (isDragging && event.target.tagName === "TD") {
+    event.target.style.backgroundColor = selectColor();
+  }
+});
+
+grid.addEventListener("mouseup", () => {
+  // No longer being dragged so set it to false
+  isDragging = false;
+});
+
+// To stop coloring cells when the mouse is released outside of a cell
+document.addEventListener("mouseup", () => {
+  isDragging = false;
+});
+
+  // Event listener for clicking on a cell to change its color
 grid.addEventListener('click', changeCellColor);
