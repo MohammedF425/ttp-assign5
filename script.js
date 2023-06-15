@@ -2,6 +2,8 @@
 const grid = document.getElementById('grid');
 const colorSelector = document.getElementById('color');
 let selectedColor = colorSelector.value;
+var table = document.querySelector('table');
+table.style.backgroundColor = '';
 
 // Function to create a new row in the grid
 function addrows() {
@@ -9,23 +11,21 @@ function addrows() {
   const cols = grid.rows[0].cells.length;
   for (let i = 0; i < cols; i++) {
     const newCell = document.createElement('td');
-    newCell.addEventListener('click', changeCellColor);
+    newCell.addEventListener('mousedown', changeCellColor);
+    newCell.addEventListener('mouseup', releasedMouse);
     newRow.appendChild(newCell);
+
   }
-  // if(cols===0){
-  //   newCell.addEventListener('mouseover', changeCellColor);
-  //   newRow.appendChild(newCell);
-  //   rows[i].appendChild(newCell); 
-  // }
   grid.appendChild(newRow);
-}
+o}
 
 // Function to add columns to the grid
 function addcols() {
   const rows = grid.rows;
   for (let i = 0; i < rows.length; i++) {
     const newCell = document.createElement('td');
-    newCell.addEventListener('click', changeCellColor);
+    newCell.addEventListener('mousedown', changeCellColor);
+    newCell.addEventListener('mouseup', releasedMouse);
     rows[i].appendChild(newCell);
   }
 }
@@ -85,32 +85,48 @@ function clearall() {
 
 let isDragging = false;
 
+function releasedMouse(){
+  isDragging=false;
+
+}
+
+
 // Listens for mouseover 
 grid.addEventListener("mousedown", (event) => {
   // If its over the table
   if (event.target.tagName === "TD") {
     // It is being dragged, set the color of the selected cell
     isDragging = true;
-    event.target.style.backgroundColor = selectColor();
+    event.target.style.backgroundColor = selectedColor;
   }
+  table.style.backgroundColor = '';
+
 });
 
 grid.addEventListener("mouseover", (event) => {
   // If being dragged within target cell, set its color given from the function
   if (isDragging && event.target.tagName === "TD") {
-    event.target.style.backgroundColor = selectColor();
+    event.target.style.backgroundColor = selectedColor;
   }
+  table.style.backgroundColor = '';
 });
 
-grid.addEventListener("mouseup", () => {
+grid.addEventListener("mouseup", (event) => {
   // No longer being dragged so set it to false
   isDragging = false;
+  table.style.backgroundColor = '';
+
+
 });
 
 // To stop coloring cells when the mouse is released outside of a cell
-document.addEventListener("mouseup", () => {
+document.addEventListener("mouseup", (event) => {
   isDragging = false;
+  table.style.backgroundColor = '';
+
 });
 
   // Event listener for clicking on a cell to change its color
-grid.addEventListener('click', changeCellColor);
+// grid.addEventListener('click', changeCellColor);
+
+
